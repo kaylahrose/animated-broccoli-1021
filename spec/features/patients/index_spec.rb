@@ -22,8 +22,8 @@ RSpec.describe 'patients index page' do
     expect(patient3.name).to appear_before(patient2.name)
     expect(patient2.name).to appear_before(patient1.name)
     expect(patient1.name).to appear_before(patient5.name)
-    expect(page).to have_content(Patient.all_sorted_alphabetically[0].name)
-    expect(page).to have_content(Patient.all_sorted_alphabetically[-1].name)
+    expect(page).to have_content(Patient.adults_sorted_alphabetically[0].name)
+    expect(page).to have_content(Patient.adults_sorted_alphabetically[-1].name)
   end
 #   User Story 3, Patient Index Page
 # ​
