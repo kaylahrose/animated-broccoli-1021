@@ -24,6 +24,10 @@ RSpec.describe Patient do
         expect(Patient.adults_sorted_alphabetically).to eq([patient6, patient2, patient1, patient5])
         expect(Patient.adults_sorted_alphabetically[0]).to eq(patient6)
         expect(Patient.adults_sorted_alphabetically.count).to eq(4)
+
+        patient7 = Patient.create!(name: 'Andre Doe', age: 18)
+        expect(Patient.adults_sorted_alphabetically.include?(patient7)).to eq(false)
+
       end
     end
   end
