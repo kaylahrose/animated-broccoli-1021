@@ -18,7 +18,7 @@ RSpec.describe 'doctor show page' do
 
     expect(page).to have_content("Dr. #{doc.name}")
     expect(page).to have_content("Specialty: #{doc.specialty}")
-    expect(page).to have_content("University: #{doc.specialty}")
+    expect(page).to have_content("University: #{doc.university}")
     expect(page).to have_content(patient1.name)
     expect(page).to have_content(patient2.name)
     expect(page).to have_content(patient3.name)
