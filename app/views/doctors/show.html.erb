@@ -5,6 +5,12 @@
 
 <p>Patients:
   <% @doctor.patients.each do |patient| %>
-    <%= patient.name %>
+    <section id="patient-<%=patient.id%>">
+      
+      <%= patient.name %> <%= form_with model: @doctor do |f| %>
+        <%= f.hidden_field :patient_id, value: patient.id %>
+        <%= f.button "Remove" %>
+      <% end %>
+    </section>
   <% end %>
 </p>

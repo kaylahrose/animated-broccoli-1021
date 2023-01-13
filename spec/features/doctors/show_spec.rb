@@ -63,10 +63,10 @@ RSpec.describe 'doctor show page' do
       click_button 'Remove'
     end
     
-    expect(current_path).to eq(doctor_path(doc))
+    expect(current_path).to eq(doctor_path(doc1))
     expect(page).to have_no_content(patient1.name)
     expect(page).to have_content(patient2.name)
-    
+
     visit doctor_path(doc2)
     expect(page).to have_content(patient1.name)
   end
