@@ -3,6 +3,6 @@ class Patient < ApplicationRecord
   has_many :doctors, through: :doctor_patients
 
   def self.adults_sorted_alphabetically
-    Patient.where("age >= ?", 17).order(:name)
+    Patient.where("age > ?", 18).order(:name)
   end
 end
