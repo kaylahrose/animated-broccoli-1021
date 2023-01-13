@@ -31,6 +31,18 @@ RSpec.describe 'hospital show page' do
     expect(page).to have_content("Doctors on staff:\n" + doc1.name)
     expect(page).to have_content(doc2.name)
   end
+
+  it 'does not list other hospital information' do
+    hospital1 = Hospital.create!(name: "University of California San Diego La Jolla")
+    doc1 = hospital1.doctors.create!(name: "Jessica Schulte", specialty: "Nuero-oncology", university: "Northwestern University Feinberg School of Medicine")
+    doc2 = hospital1.doctors.create!(name: "Anhnhi Tran", specialty: "Physical Therapy", university: "University of South Florida")
+    hospital2 = Hospital.create!(name: "UC San Francisco Weill Institute for Neurosciences")
+    doc3 = hospital2.doctors.create!(name: "Meredith Grey", specialty: "general surgery", university: "Harvard University")
+    
+    visit hospital_path(hospital1)
+
+    expect(page).to have_no_content(doc3.name)
+  end
   it 'shows number of patients next to each doctor'
   it 'lists doctors ordered by patient count'
 end
