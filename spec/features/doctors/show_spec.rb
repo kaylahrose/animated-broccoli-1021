@@ -28,16 +28,6 @@ RSpec.describe 'doctor show page' do
   end
 
   it 'removes a patient from a doctor' do
-#     User Story 2, Remove a Patient from a Doctor
-# ​
-# As a visitor
-# When I visit a Doctor's show page
-# Then next to each patient's name, I see a button to remove that patient from that doctor's caseload
-# When I click that button for one patient
-# I'm brought back to the Doctor's show page
-# And I no longer see that patient's name listed
-# And when I visit a different doctor's show page that is caring for the same patient,
-# Then I see that the patient is still on the other doctor's caseload
     hospital = Hospital.create!(name: "University of California San Diego La Jolla")
     doc1 = hospital.doctors.create!(name: "Jessica Schulte", specialty: "Nuero-oncology", university: "Northwestern University Feinberg School of Medicine")
     doc2 = hospital.doctors.create!(name: "Anhnhi Tran", specialty: "Physical Therapy", university: "University of South Florida")
