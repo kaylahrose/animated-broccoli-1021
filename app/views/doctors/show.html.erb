@@ -1,0 +1,16 @@
+<h2>Dr. <%= @doctor.name %></h2>
+<p>Specialty: <%= @doctor.specialty %></p>
+<p>Medical Degree from: <%= @doctor.university %></p>
+<p>Working at: <%= @doctor.hospital.name %></p>
+
+<p>Patients:
+  <% @doctor.patients.each do |patient| %>
+    <section id="patient-<%=patient.id%>">
+      
+      <%= patient.name %> <%= form_with model: @doctor do |f| %>
+        <%= f.hidden_field :patient_id, value: patient.id %>
+        <%= f.button "Remove" %>
+      <% end %>
+    </section>
+  <% end %>
+</p>

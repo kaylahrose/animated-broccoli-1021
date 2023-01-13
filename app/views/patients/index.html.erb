@@ -1,0 +1,6 @@
+<h2>Adult patients:</h2>
+<p>
+  <% @patients.adults_sorted_alphabetically.each do |patient| %>
+    <%= patient.name %>
+  <% end %>
+</p>
