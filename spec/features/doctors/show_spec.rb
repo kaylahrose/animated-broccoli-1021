@@ -27,6 +27,17 @@ RSpec.describe 'doctor show page' do
     expect(page).to have_no_content(patient5.name)
   end
 
+  it 'does not list other doctors information' do
+    hospital = Hospital.create!(name: "University of California San Diego La Jolla")
+    doc1 = hospital.doctors.create!(name: "Jessica Schulte", specialty: "Nuero-oncology", university: "Northwestern University Feinberg School of Medicine")
+    doc2 = hospital.doctors.create!(name: "Anhnhi Tran", specialty: "Physical Therapy", university: "University of South Florida")
+    
+    visit doctor_path(doc1)
+
+    expect(page).to have_content("Dr. #{doc1.name}")
+    expect(page).to have_no_content("Dr. #{doc2.name}")
+  end
+
   it 'removes a patient from a doctor' do
     hospital = Hospital.create!(name: "University of California San Diego La Jolla")
     doc1 = hospital.doctors.create!(name: "Jessica Schulte", specialty: "Nuero-oncology", university: "Northwestern University Feinberg School of Medicine")
