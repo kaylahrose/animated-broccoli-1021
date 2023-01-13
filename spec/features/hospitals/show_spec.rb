@@ -28,7 +28,7 @@ RSpec.describe 'hospital show page' do
     visit hospital_path(hospital)
 
     expect(page).to have_content(hospital.name + " Hospital")
-    expect(page).to have_content("Doctors on staff: " + doc1.name)
+    expect(page).to have_content("Doctors on staff:\n" + doc1.name)
     expect(page).to have_content(doc2.name)
   end
   it 'shows number of patients next to each doctor'
